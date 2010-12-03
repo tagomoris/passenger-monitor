@@ -34,7 +34,7 @@ class PassengerMonitor
             [200, {}, ["<html><body><ul>" + servers.map{|s| "<li><a href='#{@path}?pid=#{s.pid}'>pid: #{s.pid}</a></li>" }.join]]
           end
         else
-          [200, {}, [status_text(server.first)]]
+          [200, {}, [status_text(servers.first)]]
         end
       else
         [403, {}, ["source ip forbidden"]]
