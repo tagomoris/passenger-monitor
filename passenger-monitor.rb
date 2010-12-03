@@ -21,7 +21,7 @@ class PassengerMonitor
   end
 
   def call(env)
-    return @app.call(env) if env['PATH_INFO'] == @path
+    return @app.call(env) unless env['PATH_INFO'] == @path
 
     source = IPAddr.new(env['REMOTE_ADDR'])
     if @allow.inject(false){|r,a| r or a.include?(source)}
