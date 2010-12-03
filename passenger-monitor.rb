@@ -12,7 +12,7 @@ class PassengerMonitor
   end
 
   def status_text(server)
-    status = server.connect(:passenger_status){status.stats}
+    status = server.connect(:passenger_status){server.stats}
     [["Busy Processes (Active): ", status.active],
      ["Total Processes (Count): ", status.count],
      ["Max Processes: ", status.max],
